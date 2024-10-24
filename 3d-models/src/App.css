@@ -1,3 +1,13 @@
+body {
+	background: linear-gradient(
+		360deg,
+		rgb(21, 32, 40),
+		rgb(89, 100, 105),
+		#92969a,
+		#d0d1d2
+	);
+}
+
 canvas {
-    height: 100vh !important;
+	height: 100vh !important;
 }

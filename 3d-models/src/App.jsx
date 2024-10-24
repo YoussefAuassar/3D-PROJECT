@@ -7,7 +7,14 @@ import "./App.css";
 function App() {
 	return (
 		<>
-			
+			<Canvas>
+				<ambientLight intensity={1} />
+				<OrbitControls  />
+				<Suspense fallback={null}>
+					<Horloge />
+				</Suspense>
+				<Environment preset="sunset" />
+			</Canvas>
 		</>
 	);
 }
