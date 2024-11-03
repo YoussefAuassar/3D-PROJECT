@@ -13,6 +13,7 @@ function App() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [rotationSpeed, setRotationSpeed] = useState(0);
+    const [zoomLevel, setZoomLevel] = useState(1);
 
     const previousWatch = () => {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? watches.length - 1 : prevIndex - 1));
@@ -30,6 +31,14 @@ function App() {
         setRotationSpeed((prevSpeed) => prevSpeed - 0.1);
     };
 
+    const zoomIn = () => {
+        setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2));
+    };
+
+    const zoomOut = () => {
+        setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5));
+    };
+
     return (
         <div className="app">
             <h1>ARKOUDA WATCH SERIE 1</h1>
@@ -40,12 +49,14 @@ function App() {
             <div className="absolute-controls">
                 <button onClick={rotateLeft} className="control-button">Rotate Left</button>
                 <button onClick={rotateRight} className="control-button">Rotate Right</button>
+                <button onClick={zoomIn} className="control-button">Zoom In</button>
+                <button onClick={zoomOut} className="control-button">Zoom Out</button>
             </div>
             <Canvas>
                 <ambientLight intensity={1} />
                 <OrbitControls />
                 <Suspense fallback={null}>
-                    <group rotation={[0, rotationSpeed, 0]}>
+                    <group rotation={[0, rotationSpeed, 0]} scale={[zoomLevel, zoomLevel, zoomLevel]}>
                         {watches[currentIndex]}
                     </group>
                 </Suspense>
