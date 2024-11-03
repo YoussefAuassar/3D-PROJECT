@@ -6,12 +6,17 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/vol-21-ss-black-leather-6bfb9d695999453aa19172336a76e046
 Title: VOL-21 SS BLACK LEATHER
 */
-
-import React from 'react'
+import React, { useState } from 'react';
 import { useGLTF } from '@react-three/drei'
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/horloge.gltf')
+  const [rotationAngle, setRotationAngle] = useState(0);
+
+const handleRotate = () => {
+  setRotationAngle(prevAngle => prevAngle - Math.PI / 6);
+};
+
   return (
     <group {...props} dispose={null}>
       <group position={[0.003, -0.038, 0.288]} scale={[0.086, 0.086, 0.033]}>
@@ -65,7 +70,13 @@ export default function Model(props) {
         <mesh geometry={nodes.Object_60.geometry} material={materials['SS.Chrome']} />
         <mesh geometry={nodes.Object_61.geometry} material={materials['White-Matte.001']} />
       </group>
-      <group position={[0.002, -0.031, 0.302]} scale={0.076}>
+      <group
+        className="tournai"
+        position={[0.002, -0.031, 0.302]} 
+        scale={0.076}
+        rotation={[0, 0, rotationAngle]} 
+        onClick={handleRotate}
+      >
         <mesh geometry={nodes.Object_65.geometry} material={materials['SS.Chrome']} />
         <mesh geometry={nodes.Object_66.geometry} material={materials['White-Matte.001']} />
       </group>

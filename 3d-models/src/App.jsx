@@ -6,17 +6,52 @@ import Watch from "../public/Watch";
 import "./App.css";
 
 function App() {
+    const watches = [
+        <Horloge key="horloge" position={[0, 0, 0]} scale={[8, 8, 8]} />,
+        <Watch key="watch" position={[0, 0, 0]} scale={[8, 8, 8]} />
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [rotationSpeed, setRotationSpeed] = useState(0);
+
+    const previousWatch = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? watches.length - 1 : prevIndex - 1));
+    };
+
+    const nextWatch = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === watches.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    const rotateLeft = () => {
+        setRotationSpeed((prevSpeed) => prevSpeed + 0.1);
+    };
+
+    const rotateRight = () => {
+        setRotationSpeed((prevSpeed) => prevSpeed - 0.1);
+    };
+
     return (
-        <>
+        <div className="app">
+            <h1>ARKOUDA WATCH SERIE 1</h1>
+            <div className="controls">
+                <button onClick={previousWatch} className="arrow-button">{"<"}</button>
+                <button onClick={nextWatch} className="arrow-button">{">"}</button>
+            </div>
+            <div className="absolute-controls">
+                <button onClick={rotateLeft} className="control-button">Rotate Left</button>
+                <button onClick={rotateRight} className="control-button">Rotate Right</button>
+            </div>
             <Canvas>
                 <ambientLight intensity={1} />
                 <OrbitControls />
                 <Suspense fallback={null}>
-                    <Horloge position={[0, 0, 0]} scale={[8, 8, 8]} /> 
+                    <group rotation={[0, rotationSpeed, 0]}>
+                        {watches[currentIndex]}
+                    </group>
                 </Suspense>
                 <Environment preset="sunset" />
             </Canvas>
-        </>
+        </div>
     );
 }
 

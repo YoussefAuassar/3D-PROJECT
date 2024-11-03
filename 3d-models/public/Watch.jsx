@@ -11,7 +11,9 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function Model(props) {
+  
   const { nodes, materials } = useGLTF('/watch.gltf')
+
   return (
     <group {...props} dispose={null}>
       <group position={[0.003, -0.038, 0.288]} scale={[0.086, 0.086, 0.033]}>
