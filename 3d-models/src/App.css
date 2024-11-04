@@ -19,7 +19,7 @@ h1 {
 	left: 225px;
 	top: 600px;
 	color: white;
-	font-family: "poppins","sans-serif";
+	font-family: "poppins", "sans-serif";
 	font-weight: normal;
 }
 
@@ -67,34 +67,33 @@ h1 {
 }
 
 .absolute-controls {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 10;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	z-index: 10;
 }
 
-
 .control-button {
-    pointer-events: all;
-    font-size: 1.5rem;
-    background: rgba(0, 0, 0, 0.7);
-    color: #d0d1d2;
-    border: 2px solid #92969a;
-    border-radius: 5px;
-    margin: 0 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s;
+	pointer-events: all;
+	font-size: 1.5rem;
+	background: rgba(0, 0, 0, 0.7);
+	color: #d0d1d2;
+	border: 2px solid #92969a;
+	border-radius: 5px;
+	margin: 0 10px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: transform 0.2s ease, background 0.3s;
 }
 
 .control-button:hover {
-    transform: scale(1.1);
-    background: rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+	background: rgba(0, 0, 0, 0.9);
 }
 
 .control-button:focus {
-    outline: none;
+	outline: none;
 }
