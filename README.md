@@ -23,6 +23,10 @@ This project is a dynamic web application designed to showcase ARKOUDA's exquisi
 - Horloge: A 3D model representing the first watch.
 - Watch: A 3D model representing the second watch.
 
+## Tutorial
+
+- https://www.youtube.com/watch?v=M5nt1GamB_g&t=295s
+
 
 
 
