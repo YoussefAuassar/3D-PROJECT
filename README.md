@@ -17,3 +17,13 @@ This project is a dynamic web application designed to showcase ARKOUDA's exquisi
 - [@react-three/fiber:] 
 - [@react-three/drei:] 
 
+## Components
+
+- App: The primary component that contains all the application logic.
+- Horloge: A 3D model representing the first watch.
+- Watch: A 3D model representing the second watch.
+
+
+
+
+
